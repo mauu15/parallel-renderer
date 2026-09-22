@@ -28,5 +28,5 @@ endif()
 
 find_package(OpenMP REQUIRED)
 
-add_executable(renderer src/main.cpp)
+add_executable(renderer src/main.cpp src/renderer_seq.cpp src/utils.cpp)
 target_link_libraries(renderer PRIVATE OpenMP::OpenMP_CXX)
