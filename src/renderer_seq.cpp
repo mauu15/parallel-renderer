@@ -13,16 +13,16 @@ void render_seq(Image& img, const std::vector<Circle>& circles) {
         int min_y = std::max(0, static_cast<int>(std::floor(circle.y - circle.radius)));
         int max_y = std::min(img.height - 1, static_cast<int>(std::ceil(circle.y + circle.radius)));
 
-        float r_sq = circle.radius * circle.radius;
-
+        float radius_sq = circle.radius * circle.radius;
+        
         for (int y = min_y; y <= max_y; ++y) {
             for (int x = min_x; x <= max_x; ++x) {
                 
-                float dx = x - circle.x;
-                float dy = y - circle.y;
+                float dx = x - circle.x; // distanza orizzontale dal centro del cerchio
+                float dy = y - circle.y; // distanza verticale dal centro del cerchio
 
-                if (dx * dx + dy * dy <= r_sq) {
-                    int idx = y * img.width + x;
+                if (dx * dx + dy * dy <= radius_sq) {
+                    int idx = y * img.width + x; // accesso al pixel corrispondente
                     Color& pixel = img.pixels[idx];
                     
                     // Alpha blending standard: out = src * alpha + dst * (1 - alpha)

@@ -14,7 +14,7 @@ int main() {
     auto circles = generate_circles(NUM_CIRCLES, WIDTH, HEIGHT);
 
     std::sort(circles.begin(), circles.end(), [](const Circle& a, const Circle& b) {
-        return a.z < b.z;
+        return a.z < b.z; // ordinamento per profondità
     });
 
     Image img;
@@ -33,7 +33,7 @@ int main() {
     std::cout << "Salvataggio immagine..." << std::endl;
     save_ppm(img, "output_seq.ppm");
     
-    std::cout << "Fatto!" << std::endl;
+    std::cout << "Finito" << std::endl;
 
     return 0;
 }
